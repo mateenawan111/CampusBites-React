@@ -50,7 +50,7 @@ export default function MenuPage({ items, onReload, onAdd }) {
 
       {items.length ? (
         <>
-          <div className="menu-filters" aria-label="Menu filters">
+          <div className="menu-filters" role="group" aria-label="Menu filters">
             <label>
               Search dishes or ingredients
               <input

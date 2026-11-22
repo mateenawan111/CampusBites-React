@@ -59,10 +59,10 @@
 .cart-row,
 .order-summary,
 .checkout-form {
-  padding: 1rem;
+  padding: clamp(1rem, 2.2vw, 1.45rem);
   background: var(--paper);
   border: 1px solid var(--line);
-  border-radius: 0.75rem;
+  border-radius: 0.9rem;
 }
 
 .cart-row {
@@ -137,6 +137,11 @@
   margin: 1.25rem 0;
 }
 
+.order-summary {
+  position: sticky;
+  top: 1rem;
+}
+
 .order-summary dl div,
 .confirmation-items li {
   display: flex;
@@ -158,7 +163,10 @@
 }
 
 .delivery-hint {
+  padding: 0.65rem 0.75rem;
   color: var(--green);
+  background: #e7efe3;
+  border-radius: 0.55rem;
 }
 
 .order-summary > .button {
@@ -211,5 +219,9 @@
 
   .cart-line-total {
     grid-column: 2;
+  }
+
+  .order-summary {
+    position: static;
   }
 }

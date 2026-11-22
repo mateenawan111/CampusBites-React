@@ -3,6 +3,8 @@ import FoodCard from '../components/FoodCard.jsx'
 import FoodPhoto from '../components/FoodPhoto.jsx'
 import MenuStatus from '../components/MenuStatus.jsx'
 import { restaurant } from '../data/menu.js'
+import { freeDeliveryMinimum } from '../rules/delivery.js'
+import { formatPrice } from '../utils/formatPrice.js'
 
 const featuredIds = ['zinger-burger', 'chicken-biryani', 'chicken-pizza']
 
@@ -19,6 +21,7 @@ export default function HomePage({ items, status, onRetry, onAdd }) {
           <h1>Good food.<br />Close to campus.</h1>
           <p>{restaurant.description}</p>
           <Link className="button" to="/menu">Explore the menu</Link>
+          <p className="hero-delivery">Free delivery on orders of {formatPrice(freeDeliveryMinimum)} or more.</p>
         </div>
         <FoodPhoto
           className="hero-photo"
@@ -46,7 +49,7 @@ export default function HomePage({ items, status, onRetry, onAdd }) {
         </MenuStatus>
       </section>
 
-      <section className="container section-block" aria-labelledby="how-to-order">
+      <section className="container section-block how-to-order" aria-labelledby="how-to-order">
         <h2 id="how-to-order">How to order</h2>
         <ol className="order-steps">
           <li><strong>Pick your meal</strong><p>Search the menu and check the ingredients.</p></li>
