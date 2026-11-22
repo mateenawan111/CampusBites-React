@@ -1,44 +1,500 @@
+:root {
+  font: 1rem/1.55 system-ui, sans-serif;
+  color: #292820;
+  background: #faf7ef;
+  --ink: #292820;
+  --muted: #625b50;
+  --paper: #fffdf7;
+  --line: #ded8cb;
+  --green: #214737;
+  --green-dark: #183529;
+  --accent: #bd542d;
+  --error: #913719;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  background: #fff9f1;
-  color: #25221c;
-  font: 1rem/1.6 system-ui, sans-serif;
+  min-width: 0;
 }
 
-.opening {
-  width: min(100% - 2rem, 40rem);
-  margin: 3rem auto;
+button,
+input,
+select,
+textarea {
+  font: inherit;
 }
 
-.opening-area {
-  color: #863720;
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid #aa4826;
+  outline-offset: 4px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0 0 0.75rem;
+  overflow-wrap: anywhere;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.12;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  letter-spacing: -0.035em;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+}
+
+main {
+  min-height: 65vh;
+}
+
+main:focus {
+  outline: none;
+}
+
+.container {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+}
+
+.skip-link {
+  position: absolute;
+  z-index: 3;
+  top: 0.5rem;
+  left: 1rem;
+  padding: 0.5rem 0.75rem;
+  transform: translateY(-160%);
+  color: white;
+  background: var(--green);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.site-header {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+
+.header-inner,
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.header-inner {
+  min-height: 4.5rem;
+  padding-block: 0.5rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  text-decoration: none;
+}
+
+.brand > span:last-child {
+  color: var(--accent);
+}
+
+.brand-mark {
+  margin-right: 0.5rem;
+  padding: 0.35rem;
+  color: white;
+  background: var(--green);
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+}
+
+nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  text-decoration: none;
+}
+
+nav a[aria-current='page'] {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 0.35em;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.58rem 1.05rem;
+  color: white;
+  background: var(--green);
+  border: 1px solid transparent;
+  border-radius: 0.55rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: var(--green-dark);
+}
+
+.button:disabled {
+  color: #625b50;
+  background: #e8e2d5;
+}
+
+.text-link {
+  color: var(--green);
+  font-weight: 700;
+  text-underline-offset: 0.2em;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 25rem;
+  margin-top: 1.5rem;
+  background: #e9e6d6;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.hero-copy {
+  padding: clamp(1.5rem, 5vw, 4rem);
+  align-self: center;
+}
+
+.hero-copy p:not(.eyebrow) {
+  color: var(--muted);
+}
+
+.eyebrow {
+  color: var(--green);
+  font-weight: 750;
+}
+
+.food-photo {
+  display: grid;
+  overflow: hidden;
+  background: #efe9db;
+}
+
+.food-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-photo {
+  position: relative;
+  min-height: 15rem;
+}
+
+.hero-photo img {
+  position: absolute;
+  inset: 0;
+}
+
+.photo-fallback {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  min-height: 4rem;
+  padding: 0.4rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+.section-block,
+.page-section {
+  padding-block: 2.5rem;
+}
+
+.section-heading,
+.food-card-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+.section-heading {
+  margin-bottom: 1rem;
+}
+
+.section-heading > * {
+  margin: 0;
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 1rem;
+}
+
+.food-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 0.8rem;
+}
+
+.food-card-image {
+  display: block;
+}
+
+.food-card .food-photo {
+  aspect-ratio: 16 / 10;
+}
+
+.food-card .food-photo img {
+  aspect-ratio: 16 / 10;
+}
+
+.food-card-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.food-card-content h3 a {
+  text-decoration: none;
+}
+
+.food-card-content h3 a:hover {
+  text-decoration: underline;
+}
+
+.food-card-content > p,
+.page-heading > p {
+  color: var(--muted);
+}
+
+.food-card-bottom {
+  margin-top: auto;
+}
+
+.food-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.65rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.food-tags > span {
+  padding: 0.15rem 0.48rem;
+  background: #f1ebdf;
+  border-radius: 0.35rem;
+}
+
+.food-tags .vegetarian-tag {
+  color: #254738;
+  background: #e0ecdf;
+}
+
+.availability {
+  display: block;
+  color: var(--green);
+  font-size: 0.9rem;
+}
+
+.availability.sold-out {
+  color: var(--error);
   font-weight: 700;
 }
 
-.opening h1 {
-  margin-block: 0;
-  font-size: clamp(2.5rem, 9vw, 4.5rem);
-  line-height: 1.1;
+.order-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.35rem;
+  padding-left: 1.3rem;
 }
 
-.opening section {
-  margin-top: 2rem;
+.order-steps p {
+  color: var(--muted);
 }
 
-.opening ul {
-  padding: 0;
-  list-style: none;
+.menu-filters {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  align-items: end;
+  gap: 1rem;
+  margin-block: 1.5rem;
+  padding: 1rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
 }
 
-.opening li {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 0.25rem 1rem;
+label {
+  display: block;
+  font-weight: 650;
+}
+
+input:not([type='checkbox']),
+select,
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 0.3rem;
+  padding: 0.5rem 0.65rem;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid #9d978a;
+  border-radius: 0.4rem;
+}
+
+.checkbox-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  min-height: 44px;
+}
+
+.checkbox-label input {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0;
+  accent-color: var(--green);
+}
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 2rem;
+}
+
+.detail-photo {
+  aspect-ratio: 5 / 4;
+  border-radius: 0.8rem;
+}
+
+.detail-photo img {
+  aspect-ratio: 5 / 4;
+}
+
+.back-link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.detail-price {
+  font-size: 1.55rem;
+  font-weight: 800;
+}
+
+.notice {
+  margin-block: 1rem;
+  padding: 1.25rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+}
+
+.notice.container {
+  margin-inline: auto;
+}
+
+.site-footer {
+  margin-top: 1.5rem;
+  padding-block: 1.8rem;
+  color: var(--ink);
+  background: #ece7d9;
+}
+
+.footer-inner {
+  align-items: start;
+}
+
+.footer-inner p {
+  margin-bottom: 0.2rem;
+}
+
+.demo-controls summary {
+  min-height: 44px;
   padding-block: 0.5rem;
-  border-bottom: 1px solid #e4d8c9;
+  cursor: pointer;
+  font-weight: 650;
+}
+
+.demo-controls button {
+  display: block;
+  min-height: 44px;
+  margin-bottom: 0.35rem;
+  border: 1px solid var(--line);
+  border-radius: 0.4rem;
+  background: var(--paper);
+}
+
+@media (max-width: 44rem) {
+  .hero,
+  .detail-layout,
+  .order-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .menu-filters label:first-child {
+    grid-column: 1 / -1;
+  }
 }
