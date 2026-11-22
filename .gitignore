@@ -1,0 +1,17 @@
+node_modules/
+dist/
+coverage/
+*.log
+
+.env
+.env.*
+!.env.example
+.vercel/
+
+.vscode/
+.DS_Store
+Thumbs.db
+tmp/
+output/
+*.zip
+/Web Programming_A#02.pdf
