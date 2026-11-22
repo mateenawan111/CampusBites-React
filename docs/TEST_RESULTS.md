@@ -1,6 +1,6 @@
 # Test results
 
-Verified locally on 22 November 2026 using the Vite production preview and Chrome 157.0.8103.80. Desktop viewport was 1280 × 900 and touch viewport was 390 × 844. The final browser run passed all 12 checks and the captured browser console showed zero errors or React warnings. Earlier runs exposed a race between successive URL filters and a missing favicon request. Both passed in the final run.
+Verified locally on 22 November 2026 using the Vite production preview and Chrome 157.0.8103.80. Desktop viewport was 1280 × 900 and touch viewport was 390 × 844. The final browser run passed all 12 checks. A separate keyboard-only run completed the order journey from home to confirmation. The captured browser console showed zero errors or React warnings in either run. Earlier runs exposed a race between successive URL filters and a missing favicon request. Both passed in the final run.
 
 ## Reference-site improvements
 
@@ -22,7 +22,7 @@ Verified locally on 22 November 2026 using the Vite production preview and Chrom
 | Completion | A valid simulated order showed a reference, ordered items, and total. The cart cleared and stayed empty after refresh. The full mobile journey also completed. [Confirmation](evidence/campusbites/confirmation.jpg) |
 | Loading, empty and no-match states | Loading appeared before the simulated failure. **Retry** restored all 12 dishes. Empty data offered **Reload menu**, while a search with no matches offered **Clear filters**. [Retry](evidence/campusbites/menu-retry.jpg) |
 | Missing and lengthy content | The mobile content demo displayed a fallback for a missing photo. The long Vegetable Biryani title wrapped, the Add button stayed usable, and there was no page-wide overflow. [Content fallback](evidence/campusbites/missing-content-mobile.jpg) |
-| Responsive and keyboard access | Main screens showed no page-wide horizontal overflow at the tested widths. The first Tab focused the skip link with a visible outline, and Enter moved focus to main content. |
+| Responsive and keyboard access | Main screens showed no page-wide horizontal overflow at the tested widths. The first Tab focused the skip link and Enter moved focus to main content. A separate 1280px run used only Tab, typing, Space and Enter to browse, search, open a meal, add it, review the cart, fill checkout, and reach confirmation. Focus stayed visible at every tested control. |
 
 ## Automated rule test and build
 
