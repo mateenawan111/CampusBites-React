@@ -95,7 +95,7 @@ export default function MenuPage({ items, onReload, onAdd }) {
             <p role="status">{results.length} {results.length === 1 ? 'meal' : 'meals'} found</p>
           </div>
           {results.length ? (
-            <div className="food-grid">
+            <div className="food-grid menu-grid">
               {results.map((item) => (
                 <FoodCard key={item.id} item={item} menuSearch={menuSearch} onAdd={onAdd} />
               ))}

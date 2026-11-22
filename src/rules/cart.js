@@ -53,7 +53,7 @@ export function getStockProblem(row) {
 export function getOrderTotals(rows) {
   const count = rows.reduce((sum, row) => sum + row.quantity, 0)
   const subtotal = rows.reduce((sum, row) => sum + (row.item?.price ?? 0) * row.quantity, 0)
-  const delivery = calculateDelivery(subtotal)
+  const delivery = subtotal > 0 ? calculateDelivery(subtotal) : 0
 
   return { count, subtotal, delivery, total: subtotal + delivery }
 }
@@ -67,11 +67,14 @@ export function updateCartQuantity(cart, id, change, item) {
     if (problem) return { cart, message: problem, error: true }
   }
 
-  const nextCart = quantity <= 0
-    ? cart.filter((line) => line.id !== id)
-    : previousQuantity
-      ? cart.map((line) => line.id === id ? { ...line, quantity } : line)
-      : [...cart, { id, quantity }]
+  let nextCart
+  if (quantity <= 0) {
+    nextCart = cart.filter((line) => line.id !== id)
+  } else if (previousQuantity > 0) {
+    nextCart = cart.map((line) => line.id === id ? { ...line, quantity } : line)
+  } else {
+    nextCart = [...cart, { id, quantity }]
+  }
 
   const name = item?.name ?? 'Saved meal'
   const message = quantity <= 0 ? `${name} removed.` : `${name} · ${quantity} in your cart.`

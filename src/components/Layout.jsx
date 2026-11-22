@@ -42,6 +42,7 @@ export default function Layout({ children, mainRef, cartCount, feedback, onDemoM
             <div>
               <button type="button" onClick={() => onDemoMenu('fail')}>Simulate menu failure</button>
               <button type="button" onClick={() => onDemoMenu('empty')}>Show an empty menu</button>
+              <button type="button" onClick={() => onDemoMenu('content')}>Show missing photo and long title</button>
               <button type="button" onClick={() => onDemoMenu()}>Restore menu</button>
               <button type="button" onClick={onToggleStock} aria-pressed={reducedStock}>
                 Reduce Falafel Wrap stock to 1

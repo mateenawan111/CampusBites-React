@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import OrderSummary from '../components/OrderSummary.jsx'
 import { getStockProblem } from '../rules/cart.js'
@@ -7,21 +7,28 @@ import { validateCheckout } from '../rules/checkout.js'
 export default function CheckoutPage({ rows, totals, details, onChangeDetails, onPlaceOrder }) {
   const navigate = useNavigate()
   const form = useRef(null)
-  const [submitted, setSubmitted] = useState(false)
+  const fieldToFocus = useRef('')
+  const [submitAttempt, setSubmitAttempt] = useState(0)
   const [submitError, setSubmitError] = useState('')
-  const errors = submitted ? validateCheckout(details) : {}
+  const errors = submitAttempt ? validateCheckout(details) : {}
   const stockProblem = rows.some(getStockProblem)
   const conflictingItems = details.vegetarianOnly
     ? rows.filter((row) => row.item?.vegetarian === false).map((row) => row.item.name)
     : []
 
+  useEffect(() => {
+    if (fieldToFocus.current) {
+      form.current?.elements.namedItem(fieldToFocus.current)?.focus()
+    }
+  }, [submitAttempt])
+
   function handleSubmit(event) {
     event.preventDefault()
     const invalidField = Object.keys(validateCheckout(details))[0]
-    setSubmitted(true)
+    fieldToFocus.current = invalidField ?? ''
+    setSubmitAttempt((previous) => previous + 1)
 
     if (invalidField) {
-      form.current.elements.namedItem(invalidField)?.focus()
       return
     }
 

@@ -16,6 +16,7 @@ import { loadMenu } from './services/loadMenu.js'
 export default function App() {
   const { pathname } = useLocation()
   const main = useRef(null)
+  const previousPath = useRef(pathname)
   const [menu, setMenu] = useState({ status: 'loading', items: [] })
   const [request, setRequest] = useState({ mode: 'normal' })
   const [selection, setSelection] = useState(() => ({ cart: readCart(), message: '', error: false }))
@@ -25,8 +26,11 @@ export default function App() {
   const [reducedStock, setReducedStock] = useState(false)
 
   useEffect(() => {
+    if (previousPath.current === pathname) return
+
+    previousPath.current = pathname
     window.scrollTo(0, 0)
-    main.current?.focus()
+    main.current?.focus({ preventScroll: true })
   }, [pathname])
 
   useEffect(() => {

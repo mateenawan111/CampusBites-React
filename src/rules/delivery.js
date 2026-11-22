@@ -6,5 +6,5 @@ export function calculateDelivery(subtotal) {
     throw new RangeError('Subtotal must be a nonnegative whole number of rupees.')
   }
 
-  return subtotal === 0 || subtotal >= freeDeliveryMinimum ? 0 : standardDeliveryFee
+  return subtotal >= freeDeliveryMinimum ? 0 : standardDeliveryFee
 }

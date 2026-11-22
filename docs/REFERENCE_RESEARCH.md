@@ -1,6 +1,6 @@
 # Reference research
 
-I inspected the public [Broadway Pizza Pakistan ordering website](https://www.broadwaypizza.com.pk/) on 22 November 2026 from a signed-out desktop browser. The brief prefers one reference site when it supports three distinct findings. The observations below describe that session. The business consequences are plausible effects and are unmeasured. The CampusBites changes are planned for later milestones.
+I inspected the public [Broadway Pizza Pakistan ordering website](https://www.broadwaypizza.com.pk/) on 22 November 2026 from a signed-out desktop browser. The observations below describe that session. The business consequences are plausible effects and are unmeasured. The corresponding CampusBites implementation and verification steps are listed in [DECISIONS.md](../DECISIONS.md).
 
 ## 1. An order prompt interrupts initial browsing
 

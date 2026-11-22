@@ -63,6 +63,11 @@ export default function CartPage({ rows, totals, onChangeQuantity, onRemove }) {
                         <button className="remove-button" type="button" onClick={() => onRemove(id)}>
                           Remove<span className="screen-reader-only"> {name}</span>
                         </button>
+                        {item && item.stock > 0 && quantity > item.stock && (
+                          <button type="button" onClick={() => onChangeQuantity(id, item.stock - quantity)}>
+                            Use available quantity
+                          </button>
+                        )}
                       </div>
                     </div>
                     {item && <strong className="cart-line-total">{formatPrice(item.price * quantity)}</strong>}

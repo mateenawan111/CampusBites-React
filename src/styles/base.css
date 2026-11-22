@@ -319,6 +319,10 @@ nav a:hover {
   gap: 1.15rem;
 }
 
+.menu-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+}
+
 .food-card {
   display: flex;
   flex-direction: column;
