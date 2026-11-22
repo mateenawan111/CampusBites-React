@@ -28,4 +28,7 @@ Verified locally on 22 November 2026 using the Vite production preview and Chrom
 
 - `npm test` with `node --test` passed 3 tests. The shipping fee is Rs 150 for a typical subtotal below the threshold. Rs 1,499, Rs 1,500, and Rs 1,501 verify the exact transition. Invalid totals throw `RangeError`.
 - `npm run build` succeeded and produced the application and local assets in `dist/`.
-- GitHub publication and live Vercel verification are pending. The local production preview establishes local routing behaviour.
+
+## Public deployment
+
+The [Vercel production site](https://campus-bites-react.vercel.app/) opened without signing in. A direct visit to `/menu/chicken-biryani` and a refresh both loaded the meal. The live simulated order reached confirmation, cleared the cart, and produced no browser errors or warnings. The HTML, JavaScript, CSS, favicon, and food images matched the local production build byte for byte.

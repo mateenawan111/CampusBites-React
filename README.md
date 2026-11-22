@@ -16,7 +16,7 @@ npm run preview
 npm test
 ```
 
-Open the URL printed by Vite. [GitHub repository](https://github.com/mateenawan111/CampusBites-React). The public deployment URL is pending.
+Open the URL printed by Vite. [GitHub repository](https://github.com/mateenawan111/CampusBites-React) · [Live CampusBites website](https://campus-bites-react.vercel.app/)
 
 ## Routes
 

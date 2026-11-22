@@ -22,7 +22,7 @@ The reference is the CampusBites Assignment 02 brief for CS4032. The project use
 | FR16 | Clear completion | `placeOrder` saves an item and total snapshot and clears the cart. `ConfirmationPage.jsx` shows the order reference. |
 | FR17 | 390px, 1280px, and keyboard support | `base.css` and `order.css` handle layout changes. `Layout.jsx` provides a skip link and `App.jsx` manages route focus. |
 | FR18 | Address three observed reference issues | `HomePage.jsx`, `MenuPage.jsx`, and `FoodCard.jsx` implement the actions in [DECISIONS.md](../DECISIONS.md). |
-| FR19 | Public site serves assets and supports nested routes | `vercel.json` sets the Vite SPA rewrite. Public verification is pending. |
+| FR19 | Public site serves assets and supports nested routes | `vercel.json` sets the Vite SPA rewrite. The [live site](https://campus-bites-react.vercel.app/) passed public asset and nested refresh checks. |
 
 ## Other assessed deliverables
 
@@ -32,5 +32,5 @@ The reference is the CampusBites Assignment 02 brief for CS4032. The project use
 | Three frontend decisions, including state and mobile layout | [Frontend decisions](../DECISIONS.md) |
 | One rule tested with Node’s test runner | `test/delivery.test.js` and `npm test` |
 | Edge-case and responsive verification | [Test results](TEST_RESULTS.md) |
-| Public GitHub milestones and deployment | Local commits on `main`. Public publication and final source comparison are pending. |
+| Public GitHub milestones and deployment | [Public commit history](https://github.com/mateenawan111/CampusBites-React/commits/main/) and [Vercel production site](https://campus-bites-react.vercel.app/). Deployed application files matched the local production build. |
 | Independent viva | The README concept map links the main React and JavaScript concepts to their code. |
